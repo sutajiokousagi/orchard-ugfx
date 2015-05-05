@@ -23,7 +23,7 @@ static inline void post_init_board(GDisplay *g) {
 
 static inline void setpin_reset(GDisplay *g, bool_t state) {
 	(void) g;
-	(void) state;
+
 	if(state) {
 	  // reset LCD
 	  gpioxSetPadMode(GPIOX, oledResPad, GPIOX_OUT_PUSHPULL | GPIOX_VAL_LOW);
@@ -34,24 +34,25 @@ static inline void setpin_reset(GDisplay *g, bool_t state) {
 
 static inline void acquire_bus(GDisplay *g) {
 	(void) g;
+
 	oledAcquireBus();
 }
 
 static inline void release_bus(GDisplay *g) {
 	(void) g;
+
 	oledReleaseBus();
 }
 
 static inline void write_cmd(GDisplay *g, uint8_t cmd) {
 	(void) g;
-	(void) cmd;
+
 	oledCmd(cmd);
 }
 
 static inline void write_data(GDisplay *g, uint8_t* data, uint16_t length) {
 	(void) g;
-	(void) data;
-	(void) length;
+
 	oledData(data, length);
 }
 
